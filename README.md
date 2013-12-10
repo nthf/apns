@@ -4,7 +4,7 @@ apns
 (APNS) 使用说明
 
 # APNS简介
-   APNS是用Java实现的一个用于手机客户端向苹果服务器推送通知. 
+   APNS是用Java实现的一个用于手机客户端向苹果服务器推送通知的程序. 
 
 # APNS程序的配置
 1. 将苹果服务推送的证书放入keystore下(注意需要是.p12格式的). 
@@ -13,7 +13,9 @@ apns
 
 # 执行服务器脚本
 sh push.sh
+
 java -cp "push.jar:lib/*" com.yohoinc.ios.push.PushScheduler true 0 
 
 crontab -e
+
 插入: */5 * * * * sh /Data/code/apns/java/push.sh > /dev/null 2>&1
