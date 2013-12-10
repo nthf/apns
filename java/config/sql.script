@@ -1,0 +1,8 @@
+READER_COUNT_TASK=select count(id) as count from tbl_push_task where custom_key=? and status=0 
+READER_GET_TASKS=select * from tbl_push_task where custom_key=? and status=0 ORDER BY create_time DESC limit ?
+
+READER_COUNT_ALL_DEVICE_TOKENS=select count(DISTINCT device_token) as count from tbl_push_device where custom_key=? and is_notice=1
+READER_SELECT_DEVICE_TOKENS=select DISTINCT device_token from tbl_push_device where custom_key=? and is_notice=1 limit ? , ?
+READER_SELECT_DEVICE_TOKENS_BY_USER=select DISTINCT device_token from tbl_push_device where custom_key=? and user_id=? and (auto_login=1 or is_login=1)
+
+WRITER_UPDATE_TASK_STATUS=update tbl_push_task set status=? where id=?
